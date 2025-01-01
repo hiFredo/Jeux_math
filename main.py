@@ -11,12 +11,17 @@ def pose_question():
     reponse_str = input (f" Calculez : {a} + {b}  = ")
     reponse_int= int(reponse_str)
     if resultat== reponse_int : 
-        print(" Réponse Correct")
-    else : 
-        print("Réponse incorrect")
+        return True
+    return False
     
-
+nb_point= 0
 for  i in range(0,NB_QUESTION):
-    print(f"Question n° {i} sur {NB_QUESTION} ")
-    pose_question()
+    print(f"Question n° {i+1} sur {NB_QUESTION} :")
+    reponse = pose_question()
+    if reponse==True:
+        print(" Réponse Correct")
+        nb_point +=1
+    else: 
+        print("Réponse incorrect")
     print()
+print(f"Votre score est {nb_point} sur {NB_QUESTION} ")
